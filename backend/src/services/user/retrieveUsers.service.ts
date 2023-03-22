@@ -6,8 +6,13 @@ import AppDataSource from "../../data-source";
 export const retrieveUserService = async (userId: string) => {
   const userRepository = AppDataSource.getRepository(User);
 
-  const foundUser = await userRepository.findOneBy({
-    id: userId,
+  const foundUser = await userRepository.findOne({
+    where: {
+      id: userId,
+    },
+    relations: {
+      contacts: true,
+    },
   });
 
   if (!foundUser) {

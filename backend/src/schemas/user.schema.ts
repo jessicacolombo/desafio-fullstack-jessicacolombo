@@ -1,3 +1,4 @@
+import { contactResponse } from "./contact.schema";
 import {
   IUser,
   IUserRequest,
@@ -20,6 +21,7 @@ export const userWithoutPassword: SchemaOf<IUser> = yup.object().shape({
   cellphone: yup.string(),
   createdAt: yup.date(),
   updatedAt: yup.date(),
+  contacts: yup.array(contactResponse),
 });
 
 export const userUpdateSchema: SchemaOf<IUserUpdate> = yup.object().shape({
