@@ -1,6 +1,7 @@
 import {
   IContactRequest,
   IContactResponse,
+  IContactUpdate,
 } from "./../interfaces/contact.interfaces";
 import * as yup from "yup";
 import { SchemaOf } from "yup";
@@ -17,4 +18,10 @@ export const contactResponse: SchemaOf<IContactResponse> = yup.object().shape({
   email: yup.string().email(),
   cellphone: yup.string(),
   insertedAt: yup.string(),
+});
+
+export const contactUpdate: SchemaOf<IContactUpdate> = yup.object().shape({
+  name: yup.string().notRequired(),
+  email: yup.string().email().notRequired(),
+  cellphone: yup.string().notRequired(),
 });
