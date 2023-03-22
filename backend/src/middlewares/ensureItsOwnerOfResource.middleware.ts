@@ -1,7 +1,5 @@
 import { AppError } from "./../errors/AppError";
-import { User } from "./../entities/user.entity";
 import { Request, Response, NextFunction } from "express";
-import AppDataSource from "../data-source";
 
 export const ensureItsOwnerOfResourceMiddleware = async (
   req: Request,
