@@ -1,3 +1,5 @@
+import { IContactResponse } from "./contact.interfaces";
+
 export interface IUserRequest {
   name: string;
   email: string;
@@ -12,6 +14,7 @@ export interface IUser {
   cellphone: string;
   createdAt: Date;
   updatedAt: Date;
+  contacts: IContactResponse[];
 }
 
 export interface IUserLogin {

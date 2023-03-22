@@ -19,4 +19,5 @@ export interface IContactUpdate {
 
 export interface IContactResponse extends IContactRequest {
   id: string;
+  insertedAt: string;
 }
