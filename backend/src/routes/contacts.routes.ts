@@ -1,3 +1,4 @@
+import { ensureItsContactOwnerMiddleware } from "./../middlewares/ensureItsContactOwner.middleware";
 import { contactUpdate } from "./../schemas/contact.schema";
 import { ensureAuthMiddleware } from "./../middlewares/ensureAuth.middleware";
 import {
@@ -21,6 +22,12 @@ contactsRoutes.patch(
   "/:id",
   ensureDataIsValid(contactUpdate),
   ensureAuthMiddleware,
+  ensureItsContactOwnerMiddleware,
   updateContactController
 );
-contactsRoutes.delete("/:id", ensureAuthMiddleware, deleteContactController);
+contactsRoutes.delete(
+  "/:id",
+  ensureAuthMiddleware,
+  ensureItsContactOwnerMiddleware,
+  deleteContactController
+);
