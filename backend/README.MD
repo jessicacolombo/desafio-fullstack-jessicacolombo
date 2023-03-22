@@ -37,6 +37,11 @@
 
 base URL: <a> http://localhost:3001 </a>
 
+<br>
+
+<h3> Rotas relacionadas aos usuários e login </h3>
+<br>
+
 **POST** /users <br>
 
 Rota para a criação de um novo usuário.
@@ -116,6 +121,9 @@ Resposta esperada:
 	"cellphone": "00114423334",
 	"createdAt": "2023-03-21T21:46:54.000Z",
 	"updatedAt": "2023-03-21T21:59:34.000Z",
+	"contacts": [
+		...
+	]
 }
 ```
 
@@ -173,3 +181,97 @@ Resposta esperada:
 ```json
 204
 ```
+
+<br>
+
+<h3>Rotas relacionadas aos contatos</h3>
+
+<br>
+
+**POST** /contacts <br>
+
+Rota para a criação de um novo contato. Essa rota necessita de autenticação, então é necessário enviar no cabeçalho da requisição o token recebido quando um login é criado.
+
+Headers:
+
+```javascript
+"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxlaWxhQG1haWwuY29tI...";
+```
+
+Formato da requisição:
+
+```json
+{
+  "name": "contatinho",
+  "email": "contatinho@mail.com",
+  "cellphone": "0002345678"
+}
+```
+
+Resposta esperada:
+
+```json
+200
+{
+	"id": "92661308-6214-4abf-a072-b876f07a49b5",
+    "name": "contatinho",
+    "email": "contatinho@mail.com",
+	"cellphone": "0002345678",
+	"insertedAt": "Wed Mar 22 2023 13:27:46 GMT-0300 (Horário Padrão de Brasília)"
+}
+
+```
+
+<br>
+
+**PATCH** /contacts/:contactId <br>
+
+Rota para a atualização dos dados de um contato. contactId é o id do contato que estamos buscando. Essa rota necessita de autenticação (Bearer token) e somente o dono do recurso consegue alterá-lo. Podem ser alterados o nome, o email e o numero de telefone, não sendo necessário o envio de todas as informações, apenas as que serão atualizadas.
+
+Headers:
+
+```javascript
+"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxlaWxhQG1haWwuY29tI...";
+```
+
+Formato da requisição:
+
+```json
+{
+  "name": "contatinho (novo)"
+}
+```
+
+Resposta esperada:
+
+```json
+200
+{
+	"id": "92661308-6214-4abf-a072-b876f07a49b5",
+    "name": "contatinho (novo)",
+    "email": "contatinho@mail.com",
+	"cellphone": "0002345678",
+	"insertedAt": "Wed Mar 22 2023 13:27:46 GMT-0300 (Horário Padrão de Brasília)"
+}
+
+```
+
+<br>
+
+**DELETE** /contacts/:contactId <br>
+
+Rota para a deleção de um contato. contactId é o id do contato que estamos buscando. Essa rota necessita de autenticação (Bearer token) e somente o dono do recurso consegue alterá-lo.
+
+Headers:
+
+```javascript
+"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxlaWxhQG1haWwuY29tI...";
+```
+
+Resposta esperada:
+
+```json
+204
+```
+
+<br>
