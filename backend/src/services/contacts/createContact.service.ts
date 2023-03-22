@@ -2,10 +2,7 @@ import { contactResponse } from "./../../schemas/contact.schema";
 import { AppError } from "./../../errors/AppError";
 import { Contact } from "./../../entities/contact.entity";
 import { User } from "./../../entities/user.entity";
-import {
-  IContact,
-  IContactRequest,
-} from "./../../interfaces/contact.interfaces";
+import { IContactRequest } from "./../../interfaces/contact.interfaces";
 import { decode } from "jsonwebtoken";
 import AppDataSource from "../../data-source";
 
