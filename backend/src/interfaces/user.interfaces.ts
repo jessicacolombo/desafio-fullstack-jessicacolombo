@@ -26,3 +26,9 @@ export interface IUserUpdate {
   password?: string;
   cellphone?: string;
 }
+
+export interface IUserPartial {
+  name: string;
+  email: string;
+  cellphone: string;
+}
