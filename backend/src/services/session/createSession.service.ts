@@ -27,5 +27,8 @@ export const createSessionService = async (userData: IUserLogin) => {
     subject: user.id,
   });
 
-  return token;
+  return {
+    token: token,
+    id: user.id,
+  };
 };
