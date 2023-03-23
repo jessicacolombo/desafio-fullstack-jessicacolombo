@@ -93,7 +93,8 @@ Resposta esperada:
 200
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxlaWxhQG1haWwuY29tI..."
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxlaWxhQG1haWwuY29tI...",
+	"id": "2322b607-9044-4363-9127-3eeb0b28ab37"
 }
 ```
 
