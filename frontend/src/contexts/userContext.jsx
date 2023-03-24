@@ -22,6 +22,7 @@ export const UserProvider = ({ children }) => {
           api.defaults.headers.authorization = `Bearer ${token}`;
           const { data } = await api.get(`/users/${id}`);
           setUser(data);
+          navigate("/dashboard");
         } catch (error) {
           console.log(error);
         }
