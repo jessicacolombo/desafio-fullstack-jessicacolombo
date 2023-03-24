@@ -11,6 +11,7 @@ export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [contacts, setContacts] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,6 +23,7 @@ export const UserProvider = ({ children }) => {
           api.defaults.headers.authorization = `Bearer ${token}`;
           const { data } = await api.get(`/users/${id}`);
           setUser(data);
+          setContacts(data.contacts);
           navigate("/dashboard");
         } catch (error) {
           console.log(error);
@@ -54,6 +56,7 @@ export const UserProvider = ({ children }) => {
         api.defaults.headers.authorization = `Bearer ${token}`;
         const { data } = await api.get(`/users/${id}`);
         setUser(data);
+        setContacts(data.contacts);
         navigate("/dashboard");
       } catch (error) {
         console.log(error);
@@ -70,6 +73,7 @@ export const UserProvider = ({ children }) => {
     window.localStorage.clear();
     navigate("/");
     setUser(null);
+    setContacts({});
   };
 
   const {
@@ -112,6 +116,8 @@ export const UserProvider = ({ children }) => {
         registerHandleSubmit,
         registerErrors,
         onSubmitRegister,
+        contacts,
+        setContacts,
       }}
     >
       {children}
