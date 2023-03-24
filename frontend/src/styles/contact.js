@@ -36,13 +36,28 @@ export const StyledSection = styled.section`
   }
 
   ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 `;
 
 export const StyledCard = styled.li`
+  list-style: none;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px black dashed;
+  border-radius: var(--border-radius);
+
   p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    border-bottom: 1px dashed;
   }
 
   span {
+    font-size: 0.8rem;
   }
 `;

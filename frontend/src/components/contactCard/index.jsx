@@ -1,9 +1,11 @@
+import { StyledCard } from "../../styles/contact";
+
 export const ContactCard = ({ name, email, cellphone }) => {
   return (
-    <li>
-      <p>{name}</p>
-      <span>{email}</span>
-      <span>{cellphone}</span>
-    </li>
+    <StyledCard>
+      <p>Nome: {name}</p>
+      <span>Email: {email}</span>
+      <span>Telefone: {cellphone}</span>
+    </StyledCard>
   );
 };
