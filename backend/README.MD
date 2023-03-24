@@ -21,8 +21,7 @@
 ## Como Rodar o Projeto
 
 <ol>
-    <li> Clonar este repositório;
-    <li> Abrir um terminal na pasta onde foi clonado o repositório;
+    <li> Abrir um terminal na pasta backend;
     <li> Rodar o comando "yarn" para instalar as dependências; 
     <li> Criar um arquivo .env dentro desse repositorio a partir de uma cópia do .env.example, e preencher as chaves com as configurações da sua maquina.
     <li> Em seguida, rodar o comando "yarn typeorm migration:run -d src/data-source.ts" para criar as tabelas e banco de dados (cria automaticamente um arquivo de nome db.sqlite3)
