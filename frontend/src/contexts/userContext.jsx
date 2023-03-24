@@ -44,13 +44,20 @@ export const UserProvider = ({ children }) => {
     };
     try {
       const { data } = await api.post("/login", userData);
+      const { id, token } = data;
       window.localStorage.clear();
-      window.localStorage.setItem("@TOKEN", data.token);
-      window.localStorage.setItem("@ID", data.user.id);
+      window.localStorage.setItem("@TOKEN", token);
+      window.localStorage.setItem("@ID", id);
 
-      setUser(data.user);
-      api.defaults.headers.authorization = `Bearer ${data.token}`;
-      navigate("/dashboard");
+      try {
+        api.defaults.headers.authorization = `Bearer ${token}`;
+        const { data } = await api.get(`/users/${id}`);
+        setUser(data);
+        navigate("/dashboard");
+      } catch (error) {
+        console.log(error);
+        toast.error(`${error}`);
+      }
     } catch (error) {
       console.log(error);
       toast.error("Combinação errada de email / senha");
